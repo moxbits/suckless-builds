@@ -1,0 +1,7 @@
+
+st/st
+st/*.o
+st/*.orig
+st/patches/
+st/compile_flags.txt
+
