@@ -1,3 +1,10 @@
+dwm/dwm
+dwm/dwm.o
+dwm/drw.o
+dwm/util.o
+dwm/*.orig
+dwm/*.rej
+dwm/patches/
 
 st/st
 st/*.o
