@@ -24,5 +24,6 @@ slstatus/slstatus
 slstatus/*.o
 slstatus/*.orig
 slstatus/*.rej
+slstatus/components/*.o
 slstatus/patches/
 
