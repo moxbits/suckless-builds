@@ -6,9 +6,16 @@ dwm/*.orig
 dwm/*.rej
 dwm/patches/
 
+dmenu/dmenu
+dmenu/*.o
+dmenu/*.orig
+dmenu/*.rej
+dmenu/patches/
+
 st/st
 st/*.o
 st/*.orig
+st/*.rej
 st/patches/
 st/compile_flags.txt
 
