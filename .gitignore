@@ -20,3 +20,9 @@ st/*.rej
 st/patches/
 st/compile_flags.txt
 
+slstatus/slstatus
+slstatus/*.o
+slstatus/*.orig
+slstatus/*.rej
+slstatus/patches/
+
