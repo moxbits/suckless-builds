@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* interval between updates (in ms) */
-const unsigned int interval = 1000;
+const unsigned int interval = 5000;
 
 /* text to show if no value can be retrieved */
 static const char unknown_str[] = "n/a";
@@ -66,15 +66,15 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
 	/* function format          argument */
-  { keymap,        "  󰌌 %s",      NULL },
-  { netspeed_rx,   "   %s",      "wlan0" },
-  { netspeed_tx,   "   %s",      "wlan0" },
-  { wifi_essid,    "   %s",      "wlan0" },
+  { keymap,        " 󰌌 %s",      NULL },
+  { netspeed_rx,   "   %s",      "wlp5s0" },
+  { netspeed_tx,   "   %s",      "wlp5s0" },
+  { wifi_essid,    "   %s",      "wlp5s0" },
   { disk_free,     "   %s",      "/" },
   { cpu_perc,      "   %s%%",    NULL },
-  { ram_perc,      "   %s%%",    NULL },
-  { temp,          "   %s",      "/sys/class/thermal/cooling_device0/" },
-  { vol_perc,      "    %s%%",   NULL },
+  { ram_perc,      "    %s%%",    NULL },
+  { temp,          "   %s°C",      "/sys/class/thermal/thermal_zone0/temp" },
+  { run_command,   "    %s",    "wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{printf \"%d%%\", $2 * 100}';" },
   { battery_perc,  "  󰁿 %s%%",    "BAT0" },
   { battery_state, "(%s)",        "BAT0" },
   { datetime,      "   %s",      "%F %T" },
