@@ -88,7 +88,12 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbordercolor, "-sf", selfgcolor, NULL };
 
-static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[] = { "st", NULL };
+static const char *browsercmd[] = { "librewolf", NULL };
+static const char *rangercmd[] = { "st -e ranger", NULL };
+static const char *fmcmd[] = { "pcmanfm", NULL };
+
+static const char *bluetooth_script = { "/home/", NULL };
 
 /*
  * Xresources preferences to load at startup
@@ -115,6 +120,16 @@ static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,                       XK_w,      spawn,          {.v = browsercmd } },
+	{ MODKEY,                       XK_r,      spawn,          {.v = rangercmd } },
+	{ MODKEY,                       XK_c,      spawn,          {.v = fmcmd } },
+  { MODKEY|ShiftMask,             XK_w,      spawn,          SHCMD("$HOME/scripts/wifi-connect.sh")},
+  { MODKEY|ShiftMask,             XK_b,      spawn,          SHCMD("$HOME/scripts/bluetooth-connect.sh")},
+  { MODKEY|ShiftMask,             XK_p,      spawn,          SHCMD("feh --randomize --bg-fill ~/.local/wallpapers/pixelart1")},
+  { ControlMask|ShiftMask,        XK_1,      spawn,          SHCMD("$HOME/.screenlayout/laptop-monitor-only.sh")},
+  { ControlMask|ShiftMask,        XK_2,      spawn,          SHCMD("$HOME/.screenlayout/external-monitor-only.sh")},
+  { ControlMask|ShiftMask,        XK_3,      spawn,          SHCMD("$HOME/.screenlayout/external-monitor-left.sh")},
+  { ControlMask|ShiftMask,        XK_4,      spawn,          SHCMD("$HOME/.screenlayout/external-monitor-right.sh")},
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -161,6 +176,12 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
+  { 0,                            XF86XK_MonBrightnessUp,    spawn,    SHCMD ("xbacklight -inc 10")},
+  { 0,                            XF86XK_MonBrightnessDown,  spawn,    SHCMD ("xbacklight -dec 10")},
+  { 0,                            XF86XK_AudioLowerVolume,   spawn,    SHCMD ("wpctl set-volume @DEFAULT_SINK@ 5%-")},
+  { 0,                            XF86XK_AudioRaiseVolume,   spawn,    SHCMD ("wpctl set-volume @DEFAULT_SINK@ 5%+")},
+  { 0,                            XF86XK_AudioMute,          spawn,    SHCMD ("wpctl set-mute @DEFAULT_SINK@ toggle")},
+  { 0,                            XF86XK_AudioMicMute,       spawn,    SHCMD ("wpctl set-mute @DEFAULT_SOURCE@ toggle")},
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 };
 
