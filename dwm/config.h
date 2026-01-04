@@ -140,6 +140,7 @@ static const Key keys[] = {
   { 0, XF86XK_AudioMute,                     spawn,          {.v = (const char*[]){"wpctl", "set-mute", "@DEFAULT_SINK@", "toggle", NULL}} },
   { 0, XF86XK_AudioMicMute,                  spawn,          {.v = (const char*[]){"wpctl", "set-mute", "@DEFAULT_SOURCE@", "toggle", NULL}} },
   { MODKEY|ShiftMask,             XK_x,      spawn,          {.v = (const char*[]){"slock", NULL}} },
+  { MODKEY|ShiftMask,             XK_p,      spawn,          SHCMD("~/scripts/power-menu.sh")},
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
