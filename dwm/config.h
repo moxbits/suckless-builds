@@ -91,6 +91,7 @@ static const char *termcmd[]  = { "st", NULL };
 static const char *browsercmd[] = { "librewolf", NULL };
 static const char *rangercmd[] = { "st", "-e", "ranger", NULL };
 static const char *fmcmd[] = { "pcmanfm", NULL };
+static const char *telegramcmd[] = { "telegram-desktop", NULL };
 
 /*
  * Xresources preferences to load at startup
@@ -122,7 +123,8 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_w,      spawn,          {.v = browsercmd } },
 	{ MODKEY,                       XK_r,      spawn,          {.v = rangercmd } },
-	{ MODKEY,                       XK_c,      spawn,          {.v = fmcmd } },
+	{ MODKEY,                       XK_f,      spawn,          {.v = fmcmd } },
+	{ MODKEY,                       XK_t,      spawn,          {.v = telegramcmd } },
   { MODKEY|ShiftMask,             XK_n,      spawn,          SHCMD("~/scripts/wifi-connect.sh")},
   { MODKEY|ShiftMask,             XK_b,      spawn,          SHCMD("~/scripts/bluetooth-connect.sh")},
   { ControlMask|ShiftMask,        XK_1,      spawn,          SHCMD("~/.screenlayout/laptop-monitor-only.sh")},
@@ -170,9 +172,9 @@ static const Key keys[] = {
 	{ MODKEY|Mod4Mask|ShiftMask,    XK_0,      defaultgaps,    {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,                       XK_q,      killclient,     {0} },
-	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
-	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
+	{ MODKEY|ShiftMask,             XK_t,      setlayout,      {.v = &layouts[0]} },
+	{ MODKEY|ShiftMask,             XK_f,      setlayout,      {.v = &layouts[1]} },
+	{ MODKEY|ShiftMask,             XK_m,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
